@@ -2,6 +2,12 @@
 
 `jaffle_shop` is a fictional ecommerce store. This dbt project transforms raw data from an app database into a customers and orders model ready for analytics.
 
+> **nao fork.** This is [dbt-labs/jaffle_shop_duckdb](https://github.com/dbt-labs/jaffle_shop_duckdb) plus a dbt Semantic Layer, used by the [nao](https://github.com/getnao/nao) example project to showcase governed metrics.
+>
+> - `models/semantics/orders.yml`, `models/semantics/customers.yml` — semantic models and metrics on top of `orders` and `customers`
+> - `models/semantics/metricflow_time_spine.{sql,yml}` — the daily time spine MetricFlow needs
+> - `target/semantic_manifest.json` — committed on purpose so nao can compile metric queries without running dbt; refresh it with `dbt parse` after editing the semantic models
+
 <details>
 <summary>
 

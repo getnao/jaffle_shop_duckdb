@@ -4,5 +4,6 @@ prompt: How many orders are there in each status, and what is their total amount
 sql: |
   SELECT status, COUNT(*) AS orders, SUM(amount) AS total_amount
   FROM orders
+  WHERE status <> 'returned'
   GROUP BY status
   ORDER BY status

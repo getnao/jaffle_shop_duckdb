@@ -1,6 +1,7 @@
 name: average_order_value
 tags: [dbt]
-prompt: What is the average order value, rounded to 2 decimals?
+prompt: What is the average value of completed orders, rounded to 2 decimals?
 sql: |
   SELECT ROUND(AVG(amount), 2) AS average_order_value
   FROM orders
+  WHERE status = 'completed'

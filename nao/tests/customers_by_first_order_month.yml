@@ -1,0 +1,9 @@
+name: customers_by_first_order_month
+tags: [dbt]
+prompt: How many customers placed their first order in each month?
+sql: |
+  SELECT DATE_TRUNC('month', first_order) AS first_order_month, COUNT(*) AS customers
+  FROM customers
+  WHERE first_order IS NOT NULL
+  GROUP BY first_order_month
+  ORDER BY first_order_month

@@ -1,0 +1,6 @@
+name: coupon_share_of_revenue
+tags: [dbt]
+prompt: What share of the total order amount was paid with coupons, as a percentage rounded to 1 decimal?
+sql: |
+  SELECT ROUND(100 * SUM(coupon_amount) / SUM(amount), 1) AS coupon_share_pct
+  FROM orders

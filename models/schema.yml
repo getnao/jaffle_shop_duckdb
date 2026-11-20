@@ -30,7 +30,12 @@ models:
         description: Total value (AUD) of a customer's orders
 
   - name: orders
-    description: This table has basic information about orders, as well as some derived facts based on payments
+    description: >
+      One row per order (primary key: order_id; there is no `id` column).
+      The `amount` column is the total value (AUD) of the order, already aggregated
+      across all payment methods (credit_card, coupon, bank_transfer, gift_card),
+      so revenue = SUM(amount) with no payments join required. This table is NOT
+      filtered to any time period — use order_date to scope by date.
 
     columns:
       - name: order_id
